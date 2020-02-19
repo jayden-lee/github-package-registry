@@ -40,9 +40,9 @@
 </settings>
 ```
 
-[x] repository에서 url 수정
-[x] USERNAME 변경
-[x] TOKEN 변경
+- [x] repository에서 url 수정
+- [x] USERNAME 변경
+- [x] TOKEN 변경
 
 ## Publishing package
 ```
@@ -59,7 +59,6 @@ mvn deploy
   </dependency>
 </dependencies>
 ```
-
 
 ```
 mvn install
