@@ -1,4 +1,5 @@
 # github-package-registry
+> github package example repo
 
 ## Authenticating with a personal access token
 ```
@@ -51,13 +52,48 @@ mvn deploy
 
 ## Installing a package
 ```
-<dependencies>
-  <dependency>
-    <groupId>com.example</groupId>
-    <artifactId>test</artifactId>
-    <version>1.0.0</version>
-  </dependency>
-</dependencies>
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>org.example</groupId>
+    <artifactId>sample-test</artifactId>
+    <version>1.0-SNAPSHOT</version>
+
+    <properties>
+        <github.global.server>github</github.global.server>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+        <java.version>8</java.version>
+        <maven.compiler.source>8</maven.compiler.source>
+        <maven.compiler.target>8</maven.compiler.target>
+    </properties>
+
+    <repositories>
+        <repository>
+            <id>github</id>
+            <name>GitHub Apache Maven Packages</name>
+            <url>https://maven.pkg.github.com/jayden-lee/github-package-registry</url>
+            <releases>
+                <enabled>true</enabled>
+            </releases>
+            <snapshots>
+                <enabled>true</enabled>
+            </snapshots>
+        </repository>
+    </repositories>
+
+    <dependencies>
+        <dependency>
+            <groupId>org.example</groupId>
+            <artifactId>sample</artifactId>
+            <version>1.0.3</version>
+        </dependency>
+    </dependencies>
+
+</project>
 ```
 
 ```
