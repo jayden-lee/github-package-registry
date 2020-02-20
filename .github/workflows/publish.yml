@@ -21,4 +21,4 @@ jobs:
         env:
           GPR_USER: ${{ secrets.GPR_USER }}
           GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
-        run: ./kotlin-sample/gradlew publish
+        run: cd kotlin-sample && ./gradlew publish
