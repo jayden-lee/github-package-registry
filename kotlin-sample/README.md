@@ -71,3 +71,28 @@ jobs:
           GPR_API_KEY: ${{ secrets.GPR_API_KEY }}
         run: cd kotlin-sample && ./gradlew publish
 ```
+
+## Github 패키지 종속성 추가하기
+다른 코틀린 프로젝트에서 Github에 있는 패키지를 종속성으로 추가하려면, <code>build.gradle.kts</code> 설정 파일에 아래 정보를 추가해야 한다.
+
+```
+plugins {
+    // ...
+    id("maven")
+}
+
+repositories {
+    maven {
+        name = "GitHubPackages"
+        url = uri("https://maven.pkg.github.com/jayden-lee/github-package-registry")
+        credentials {
+            username = project.findProperty("gpr.user") as String? ?: System.getenv("GPR_USER")
+            password = project.findProperty("gpr.key") as String? ?: System.getenv("GPR_API_KEY")
+        }
+    }
+}
+
+dependencies {
+    implementation("com.jayden.common:kotlin-sample:1.0.6")
+}
+``` 
